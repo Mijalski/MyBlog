@@ -3,13 +3,14 @@ languageCode = "en-us"
 theme = "hyde"
 paginate = 5
 
-
 [params.twitter]
-  # set Twitter handles for Twitter cards
-  # see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
-  # do not include @
   creator = "Hubert Mjalski"
   site = "www.hmijalski.com"
+  defaultTheme = "light"
+  homeSubtitle = "Everything .NET Blog"
+  mainSections = ["posts"]
+  showReadMore = true
+  description = "Everything .NET Blog"
 
 
 [params]

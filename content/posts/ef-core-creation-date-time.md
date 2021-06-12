@@ -19,7 +19,7 @@ First we need to create some sort of interface for it, like: `ICreationAudited.c
 public interface IAuditedEntity
 {
     DateTimeOffset CreationDateTime { get; set; }
-    DateTimeOffset? ModificationDateTime { get; set; }
+    DateTimeOffset? LastModificationDateTime { get; set; }
 }
 
 {{< /code >}}
@@ -30,30 +30,32 @@ Now we need to intercept the `SaveChanges` calls. For this purpose let's create 
 
 private void SetAuditedColumns()
 {
-    var entriesCreated = ChangeTracker
+    var entitiesCreated = ChangeTracker
         .Entries()
-        .Where(e => e.Entity is ICreationAuditedEntity 
-                    && e.State == EntityState.Added);
+        .Where(e => e.Entity is IAuditedEntity 
+                    && e.State == EntityState.Added)
+        .Select(x => x.Entity as IAuditedEntity);
 
-    var entriesModified = ChangeTracker
+    var entitiesModified = ChangeTracker
         .Entries()
-        .Where(e => e.Entity is IModificationAuditedEntity 
-                    && e.State == EntityState.Modified);
+        .Where(e => e.Entity is IAuditedEntity 
+                    && e.State == EntityState.Modified)
+        .Select(x => x.Entity as IAuditedEntity);
 
-    foreach (var entityEntry in entriesCreated)
+    foreach (var entity in entitiesCreated)
     {
-        ((ICreationAuditedEntity)entityEntry.Entity).CreationDateTime = 
-            DateTimeOffset.Now;
+        entity.CreationDateTime = DateTimeOffset.Now;
     }
 
-    foreach (var entityEntry in entriesModified)
+    foreach (var entity in entitiesModified)
     {
-        ((IModificationAuditedEntity)entityEntry.Entity).LastModificationDateTime = 
-            DateTimeOffset.Now;
+        entity.LastModificationDateTime = DateTimeOffset.Now;
     }
 }
 
 {{< /code >}}
+
+You can simplify the code to:
 
 Now we need to override `SaveChanges` and `SaveChangesAsync` methods in our `ApplicationDbContext.cs` to perform our custom logic and that's it.
 

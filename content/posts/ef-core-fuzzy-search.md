@@ -11,7 +11,7 @@ showFullContent = false
 draft = true
 +++
 
-Fuzzy search allows to find strings that match the pattern approximately. It is a feature needed in almost every app, but it can be a little problematic to implement. We will focus on EFCore PostgreSql provider as it is free and seems to be the most popular choice nowadays (for me atleast).
+Fuzzy search allows finding strings that match the pattern approximately. It is a feature needed in almost every app, but it can be a little problematic to implement. We will focus on EFCore PostgreSql provider as it is free and seems to be the most popular choice nowadays (for me at least).
 
 First, our EFCore project needs this package: [Npgsql.EntityFrameworkCore.PostgreSQL.FuzzyStringMatch](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL.FuzzyStringMatch/)
 
@@ -68,4 +68,4 @@ public IQueryable<Example> GetAllByMatchingName(string name)
 
 {{< /code >}}
 
-This code will output an `IQueryable` of our `Example` entity with matching name, ordered from the most similiar to the least. The method also accepts a threshold acting as a cutoff point for matching, so that it won't return the whole database for you. You will need to experiment with the values and of course there are different types of functions to perform the search, but I'll leave the resarch up to you as it might depend on your case.
+This code will output an `IQueryable` of our `Example` entity with a matching name, ordered from the most similar to the least. The method also accepts a threshold acting as a cutoff point for matching, so that it won't return the whole database for you. You will need to experiment with the values and of course, there are different types of functions to perform the search, but I'll leave the research up to you as it might depend on your case.

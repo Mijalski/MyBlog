@@ -10,13 +10,13 @@ description = ""
 showFullContent = false
 +++
 
-Soft deleting is an easy way of deleting data without actually removing it from the database. Instead of actually performing `DELETE` on the database we mark it as deleted and filter it out by default on the application side. We want our soft delete mechanism to function seamlessly with EFCore, after all it's just the implementation detail, so we need to intercept all `DbContext` `Remove` calls.
+Soft deleting is an easy way of deleting data without actually removing it from the database. Instead of performing `DELETE` on the database we mark it as deleted and filter it out by default on the application side. We want our soft delete mechanism to function seamlessly with EFCore, after all, it's just the implementation detail, so we need to intercept all `DbContext` `Remove` calls.
 
 So, to achieve this we need two parts: 
 - filtering out all data that has the deleted flag set, so that it is impossible for our Application to read deleted data
 - intercepting all `SaveChanges` or `SaveChangesAsync` calls and replacing the usual delete with our custom Soft Delete mechanism
 
-First we need our `ISoftDelete.cs` interface, which all our entities will implement. It's a good practice to put in the time stamp as well.
+First, we need our `ISoftDelete.cs` interface, which all our entities will implement. It's a good practice to put in the time stamp as well.
 
 {{< code language=csharp >}}
 
@@ -28,7 +28,7 @@ public interface ISoftDelete
 
 {{< /code >}}
 
-After that in our `ApplicationDbContext.cs` we need to create the filter with a help with of some reflection magic. We need to set the filter on each entity, so we iterate over them and then check if they implement the `ISoftDelte` interface to see if they are a candidate for the filter. After that we set the filtering by getting the property and creating lambda expression for it.
+After that in our `ApplicationDbContext.cs` we need to create the filter with the help of some reflection magic. We need to set the filter on each entity, so we iterate over them and then check if they implement the `ISoftDelte` interface to see if they are a candidate for the filter. After that, we set the filtering by getting the property and creating a lambda expression for it.
 
 {{< code language=csharp >}}
 
@@ -64,7 +64,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 {{< /code >}}
 
-We are halfway there, now we need to set those columns by intercepting the `SaveChanges` calls. For this purpose let's create a method, that will check the EFCore internal `ChangeTracker` for any candidates implementig `ISoftDelete` interface to be removed and replacing their state with `EntityState.Modified` and setting the appropriate columns.
+We are halfway there, now we need to set those columns by intercepting the `SaveChanges` calls. For this purpose let's create a method, that will check the EFCore internal `ChangeTracker` for any candidates implementing `ISoftDelete` interface to be removed and replacing their state with `EntityState.Modified` and setting the appropriate columns.
 
 {{< code language=csharp >}}
 

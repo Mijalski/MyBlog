@@ -13,7 +13,7 @@ showFullContent = false
 When our model configuration is stored all in one file (usually `ApplicationDbContext.cs`) it becomes tedious to edit it as the application grows.
 Even, if developers agree to stick to some kind of ordering it is bound to blur and fade away as one of the developers inevitably adds one configuration in the wrong place. How can we prevent it?
 
-The answer to our problem is: `IEntityTypeConfiguration<T>`. By implementing the interface you can configure the model for each individual class by implementing the interface's only method `void Configure(EntityTypeBuilder<T> builder)`. With it we can decentralize our model configuration to separate the configuration accross multiple files thus following the Open/Closed Principle (as adding new configuration becomes as easy as adding new file without altering the existing code). 
+The answer to our problem is: `IEntityTypeConfiguration<T>`. By implementing the interface you can configure the model for each class by implementing the interface's only method `void Configure(EntityTypeBuilder<T> builder)`. With it, we can decentralize our model configuration to separate the configuration across multiple files thus following the Open/Closed Principle (as adding a new configuration becomes as easy as adding a new file without altering the existing code). 
 
 We now have to register all our Configurations from given assembly in our `ApplicationDbContext.cs`, like so:
 
@@ -28,7 +28,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 {{< /code >}}
 
-And create the configuration classes in our project (preferably under separate directory called `Configurations`) like so:
+And create the configuration classes in our project (preferably under a separate directory called `Configurations`) like so:
 {{< code language=csharp >}}
 
 public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser>

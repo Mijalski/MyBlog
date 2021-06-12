@@ -10,7 +10,7 @@ description = ""
 showFullContent = false
 +++
 
-For auditing purposes we might want our entities to have creation and/or modification timestamps (we may also extend it with some additional data, like user ID). It can be a pain to keep in mind to always set the appropriate columns, but we can make EFCore do it for us.
+For auditing purposes, we might want our entities to have creation and/or modification timestamps (we may also extend it with some additional data, like user ID). It can be a pain to keep in mind to always set the appropriate columns, but we can make EFCore do it for us.
 
 First we need create some sort of interface for it, like: `ICreationAudited.cs` or `IAuditedEntity.cs`.
 
@@ -24,7 +24,7 @@ public interface IAuditedEntity
 
 {{< /code >}}
 
-Now we need to intercept the `SaveChanges` calls. For this purpose let's create a method, that will check the EFCore internal `ChangeTracker` for any new entities that are implementing our `IAuditedEntity` interface. We can do that by checking their state against enum `EntityState.Added` or `EntityState.Modified` and setting the appropriate columns with daates.
+Now we need to intercept the `SaveChanges` calls. For this purpose let's create a method, that will check the EFCore internal `ChangeTracker` for any new entities that are implementing our `IAuditedEntity` interface. We can do that by checking their state against the enums `EntityState.Added` or `EntityState.Modified` and setting the appropriate columns with dates.
 
 {{< code language=csharp >}}
 

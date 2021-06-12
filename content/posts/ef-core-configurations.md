@@ -1,6 +1,6 @@
 +++
 title = "EF Core Registering Model Configurations By Convention"
-date = "2021-06-11T17:26:47+02:00"
+date = "2021-06-08T17:26:47+02:00"
 author = ""
 authorTwitter = "kyrcooler"
 cover = ""

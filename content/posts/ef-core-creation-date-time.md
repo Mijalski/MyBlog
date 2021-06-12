@@ -1,6 +1,6 @@
 +++
 title = "EF Core Automatic Creation and Modification Timestamp"
-date = "2021-06-11T22:24:55+02:00"
+date = "2021-06-10T22:24:55+02:00"
 author = ""
 authorTwitter = "kyrcooler"
 cover = ""

@@ -2,7 +2,7 @@
 title = "EF Core Automatic Creation and Modification Timestamp"
 date = "2021-06-11T22:24:55+02:00"
 author = ""
-authorTwitter = "" #do not include @
+authorTwitter = "kyrcooler"
 cover = ""
 tags = ["efcore"]
 keywords = ["efcore", "entity framework core", "timestamp", "ef core", "ef core creation date", "creation timestamp"]
@@ -12,7 +12,7 @@ showFullContent = false
 
 For auditing purposes, we might want our entities to have creation and/or modification timestamps (we may also extend it with some additional data, like user ID). It can be a pain to keep in mind to always set the appropriate columns, but we can make EFCore do it for us.
 
-First we need create some sort of interface for it, like: `ICreationAudited.cs` or `IAuditedEntity.cs`.
+First we need to create some sort of interface for it, like: `ICreationAudited.cs` or `IAuditedEntity.cs`.
 
 {{< code language=csharp >}}
 

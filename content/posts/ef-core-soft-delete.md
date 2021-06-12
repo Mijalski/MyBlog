@@ -2,7 +2,7 @@
 title = "EF Core Implementing Soft Delete"
 date = "2021-06-11T17:26:47+02:00"
 author = ""
-authorTwitter = "" #do not include @
+authorTwitter = "kyrcooler"
 cover = ""
 tags = ["efcore"]
 keywords = ["efcore", "entity framework core", "soft delete", "ef core", "ef core soft delete", "soft deleting"]

@@ -2,13 +2,12 @@
 title = "EF Core Implementing Fuzzy Search"
 date = "2021-06-11T22:36:23+02:00"
 author = ""
-authorTwitter = "" #do not include @
+authorTwitter = "kyrcooler"
 cover = ""
 tags = ["efcore", "postgresql"]
 keywords = ["efcore", "entity framework core", "fuzzysearch", "ef core", "ef core fuzzy search", "fuzzy search", "ef core postgresql fuzzysearch", "postgresql fuzzysearch", "ef core postgre fuzzy search", "ef core postgre fuzzysearch"]
 description = ""
 showFullContent = false
-draft = true
 +++
 
 Fuzzy search allows finding strings that match the pattern approximately. It is a feature needed in almost every app, but it can be a little problematic to implement. We will focus on EFCore PostgreSql provider as it is free and seems to be the most popular choice nowadays (for me at least).

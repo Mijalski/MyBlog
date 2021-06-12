@@ -2,7 +2,7 @@
 title = "EF Core Registering Model Configurations By Convention"
 date = "2021-06-11T17:26:47+02:00"
 author = ""
-authorTwitter = "" #do not include @
+authorTwitter = "kyrcooler"
 cover = ""
 tags = ["efcore", "dependency-injection"]
 keywords = ["efcore", "entity framework core", "EntityTypeBuilder", "ef core", "ef core configuration"]

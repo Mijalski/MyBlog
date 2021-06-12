@@ -46,8 +46,8 @@ paginate = 5
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Terminal"
-    subtitle = "A simple, retro theme for Hugo"
+    title = "Hubert Mijalski .NET Blog"
+    subtitle = "Tutorials about all the .NET stuff I learn along the way"
     owner = ""
     keywords = ""
     copyright = "© 2021 Hubert Mijalski"
@@ -60,7 +60,7 @@ paginate = 5
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-      logoText = "Hubert Mijalski Blog"
+      logoText = "Hubert Mijalski .NET Blog"
       logoHomeLink = "/"
 
     [languages.en.menu]

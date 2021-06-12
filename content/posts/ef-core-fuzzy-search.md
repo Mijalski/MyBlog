@@ -74,3 +74,6 @@ public IQueryable<Example> GetAllWithMatchingName(string name)
 {{< / highlight >}}
 
 This code will output an `IQueryable` of our `Example` entity with a matching name, ordered from the most similar to the least. The method also accepts a threshold acting as a cutoff point for matching, so that it won't return the whole database for you. You will need to experiment with the values and of course, there are different types of functions to perform the search, but I'll leave the research up to you as it might depend on your case.
+
+With that you are ready to create a better search bar for your users!
+![What is Fuzzy Search](https://i.imgflip.com/5d0km4.jpg)

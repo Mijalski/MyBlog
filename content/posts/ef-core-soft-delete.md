@@ -18,7 +18,7 @@ So, to achieve this we need two parts:
 
 First, we need our `ISoftDelete.cs` interface, which all our entities will implement. It's a good practice to put in the time stamp as well.
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 public interface ISoftDelete
 {
@@ -26,32 +26,36 @@ public interface ISoftDelete
     DateTimeOffset? DeletionDateTime { get; set; }
 }
 
-{{< /code >}}
+{{< / highlight >}}
 
 After that in our `ApplicationDbContext.cs` we need to create the filter with the help of some reflection magic. We need to set the filter on each entity, so we iterate over them and then check if they implement the `ISoftDelte` interface to see if they are a candidate for the filter. After that, we set the filtering by getting the property and creating a lambda expression for it.
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 protected void SetGlobalSoftDeleteQueryFilter(ModelBuilder modelBuilder)
 {
     foreach (var entityType in modelBuilder.Model.GetEntityTypes())
     {
         var isDeletedProperty = entityType.FindProperty("IsDeleted");
-        if (isDeletedProperty != null && isDeletedProperty.ClrType == typeof(bool))
+        if (isDeletedProperty != null 
+            && isDeletedProperty.ClrType == typeof(bool))
         {
-            var parameter = Expression.Parameter(entityType.ClrType, "p");
-            var prop = Expression.Property(parameter, isDeletedProperty.PropertyInfo);
-            var filter = Expression.Lambda(Expression.Not(prop), parameter);
+            var parameter = Expression.Parameter(
+                entityType.ClrType, "p");
+            var prop = Expression.Property(parameter, 
+                isDeletedProperty.PropertyInfo);
+            var filter = Expression.Lambda(Expression.Not(prop),
+                parameter);
             entityType.SetQueryFilter(filter);
         }
     }
 }
 
-{{< /code >}}
+{{< / highlight >}}
 
 Now we need to register it in our `OnModelCreating` method:
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
@@ -62,32 +66,33 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     // ...
 }
 
-{{< /code >}}
+{{< / highlight >}}
 
 We are halfway there, now we need to set those columns by intercepting the `SaveChanges` calls. For this purpose let's create a method, that will check the EFCore internal `ChangeTracker` for any candidates implementing `ISoftDelete` interface to be removed and replacing their state with `EntityState.Modified` and setting the appropriate columns.
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 private void SetSoftDeleteColumns()
 {
     var entriesDeleted = ChangeTracker
         .Entries()
-        .Where(e => e.Entity is ISoftDelete && e.State == EntityState.Deleted);
+        .Where(e => e.Entity is ISoftDelete 
+                && e.State == EntityState.Deleted);
 
     foreach (var entityEntry in entriesDeleted)
     {
         ((ISoftDelete)entityEntry.Entity).IsDeleted = true;
-        ((ISoftDelete)entityEntry.Entity).DeletionDateTime = DateTimeOffset.Now;
+        ((ISoftDelete)entityEntry.Entity).DeletionDateTime = 
+                DateTimeOffset.Now;
         entityEntry.State = EntityState.Modified;
     }
 }
 
-
-{{< /code >}}
+{{< / highlight >}}
 
 Now we need to override `SaveChanges` and `SaveChangesAsync` methods in our `ApplicationDbContext.cs` to perform our custom logic and that's it.
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 public override int SaveChanges()
 {
@@ -104,4 +109,4 @@ public override Task<int> SaveChangesAsync(
     return base.SaveChangesAsync(cancellationToken);
 }
 
-{{< /code >}}
+{{< / highlight >}}

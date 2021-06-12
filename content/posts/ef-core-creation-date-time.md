@@ -14,7 +14,7 @@ For auditing purposes, we might want our entities to have creation and/or modifi
 
 First we need to create some sort of interface for it, like: `ICreationAudited.cs` or `IAuditedEntity.cs`.
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 public interface IAuditedEntity
 {
@@ -22,11 +22,11 @@ public interface IAuditedEntity
     DateTimeOffset? LastModificationDateTime { get; set; }
 }
 
-{{< /code >}}
+{{< / highlight >}}
 
 Now we need to intercept the `SaveChanges` calls. For this purpose let's create a method, that will check the EFCore internal `ChangeTracker` for any new entities that are implementing our `IAuditedEntity` interface. We can do that by checking their state against the enums `EntityState.Added` or `EntityState.Modified` and setting the appropriate columns with dates.
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 private void SetAuditedColumns()
 {
@@ -53,11 +53,11 @@ private void SetAuditedColumns()
     }
 }
 
-{{< /code >}}
+{{< / highlight >}}
 
 Now we need to override `SaveChanges` and `SaveChangesAsync` methods in our `ApplicationDbContext.cs` to perform our custom logic and that's it.
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 public override int SaveChanges()
 {
@@ -74,4 +74,4 @@ public override Task<int> SaveChangesAsync(
     return base.SaveChangesAsync(cancellationToken);
 }
 
-{{< /code >}}
+{{< / highlight >}}

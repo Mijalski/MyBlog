@@ -19,19 +19,21 @@ The answer to our problem is: `IEntityTypeConfiguration<T>`. By implementing the
 
 We now have to register all our Configurations from given assembly in our `ApplicationDbContext.cs`, like so:
 
-{{< code language=csharp >}}
+{{< highlight csharp >}}
 
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     base.OnModelCreating(modelBuilder);
 
-    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    modelBuilder.ApplyConfigurationsFromAssembly(
+        Assembly.GetExecutingAssembly());
 }
 
-{{< /code >}}
+{{< / highlight >}}
 
 And create the configuration classes in our project (preferably under a separate directory called `Configurations`) like so:
-{{< code language=csharp >}}
+
+{{< highlight csharp >}}
 
 public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser>
 {
@@ -42,6 +44,6 @@ public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser>
     }
 }
 
-{{< /code >}}
+{{< / highlight >}}
 
 I have found that following the suffix `EntityTypeConfiguration` or `Configuration` makes it easy to navigate the project. Editing an entity and wanting to edit the configuration as well? Easy, just hit `Ctrl`+`T` and type in the name of the entity with the suffix.

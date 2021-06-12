@@ -30,7 +30,7 @@ public void ConfigureServices(IServiceCollection services)
 
 {{< /code >}}
 
-After that, let's create a database migration with our new extension registered. In `ApplicationDbContext.cs` edit `OnModelCreating` method:
+After that, we need to create a new database migration with our new extension. In `ApplicationDbContext.cs` edit `OnModelCreating` method and register the extension:
 
 {{< code language=csharp >}}
 
@@ -54,11 +54,11 @@ PM> update-database
 
 {{< /code >}}
 
-We can now use `EF.Functions` to query our database, just like on the example:
+That's it! We can now use `EF.Functions` to query our database, just like on the example:
 
 {{< code language=csharp >}}
 
-public IQueryable<Example> GetAllByMatchingName(string name)
+public IQueryable<Example> GetAllWithMatchingName(string name)
 {
     return _dbSet
         .Where(_ => EF.Functions.FuzzyStringMatchLevenshtein(_.Name, name) <= 5)

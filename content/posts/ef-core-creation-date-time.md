@@ -55,8 +55,6 @@ private void SetAuditedColumns()
 
 {{< /code >}}
 
-You can simplify the code to:
-
 Now we need to override `SaveChanges` and `SaveChangesAsync` methods in our `ApplicationDbContext.cs` to perform our custom logic and that's it.
 
 {{< code language=csharp >}}

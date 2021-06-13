@@ -8,9 +8,10 @@ tags = ["architecture"]
 keywords = ["architecture", "project architecture", ".net architecture", ".net project structure", "project structure"]
 description = ""
 showFullContent = false
+draft=true
 +++
 
-![.NET Project structure](https://i.imgur.com/CLQdH6F.png)
+![.NET Project structure](https://i.imgur.com/bYtMMIl.png)
 
 For almost all of my projects, I follow this simple project structure and it works great, so let's go over it from the bottom.
 

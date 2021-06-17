@@ -1,6 +1,6 @@
 +++
 title = ".NET Project Structure"
-date = "2021-06-12T13:26:47+02:00"
+date = "2021-06-16T13:26:47+02:00"
 author = ""
 authorTwitter = "kyrcooler"
 cover = ""
@@ -8,7 +8,6 @@ tags = ["architecture"]
 keywords = ["architecture", "project architecture", ".net architecture", ".net project structure", "project structure"]
 description = ""
 showFullContent = false
-draft=true
 +++
 
 ![.NET Project structure](https://i.imgur.com/bYtMMIl.png)

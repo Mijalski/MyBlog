@@ -43,7 +43,7 @@ _Example Application layer folder following CQRS and including mapping and valia
 
 ## Contracts
 
-This layer specifies all DTOs used in the Application layer as well as the User Interface. It should contain all definitions of requests and responses for them. The Contract name stands for the contract that it establishes between the Client and Application, saying given those inputs it will produce the given output. This layer may be named `ExampleApp.Application.Contracts`.
+This layer specifies all DTOs used in the `Application` layer as well as the `User Interface`. It should contain all definitions of requests and responses for them. The Contract name stands for the contract that it establishes between the Client and Application, saying given those inputs it will produce the given output. This layer may be named `ExampleApp.Application.Contracts`.
 
 ![Example Contracts Layer](https://i.imgur.com/VA6L9TI.png)
 _Example Contracts layer folder with Requests for User_

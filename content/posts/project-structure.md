@@ -10,7 +10,7 @@ description = ""
 showFullContent = false
 +++
 
-![.NET Project structure](https://i.imgur.com/bYtMMIl.png)
+![.NET Project structure](https://i.imgur.com/nKMpPXF.png)
 
 For almost all of my projects, I follow this simple project structure and it works great, so let's go over it from the bottom.
 

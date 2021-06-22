@@ -8,7 +8,7 @@ tags = ["efcore", "postgresql"]
 keywords = ["efcore", "entity framework core", "fuzzysearch", "ef core", "ef core fuzzy search", "fuzzy search", "ef core postgresql fuzzysearch", "postgresql fuzzysearch", "ef core postgre fuzzy search", "ef core postgre fuzzysearch"]
 description = ""
 showFullContent = false
-draft=true
+draft=false
 +++
 
 ![EF Core + Postgre + Fuzzy Search](https://i.imgur.com/W861qmy.png)

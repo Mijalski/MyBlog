@@ -14,7 +14,7 @@ showFullContent = false
 
 Dependency injection (DI) software design pattern is one of the most used ones and requires no introduction, but if you need any [check out MDNS article about this topic](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection). 
 
-To achieve Inversion of Control, developers use Containers, in which we define services and the abstractions that they fulfill so that they can be injected (created) at runtime. .NET Core and .NET5+ has a simple container built-in that allows registering dependencies one by one, but the application can quickly outgrow this approach, plus it creates an additional responsibility of remembering to register our new service each time we create one.
+To achieve Inversion of Control we can use DI Containers, in which we define services and the abstractions that they fulfill so that they can be injected (created) at runtime. .NET Core and .NET5+ has a simple container built-in that allows registering dependencies one by one, but the application can quickly outgrow this approach, plus it creates an additional responsibility of remembering to register our new service each time we create one.
 
 Here's an example of registering dependencies one by one, which is fine up to a certain point.
 
@@ -28,9 +28,9 @@ services.AddTransient<IMyService, MyService>()
 
 Developers tend to lean towards other containers, that support registering by convention (by some rules, eg. by name), but they can create an unnecessary complexity (some even abstract from IServiceCollection) and they all seem to have a steep learning curve.
 
-How can you register all your dependencies without writing lines and lines of code?  [Scrutor](https://www.nuget.org/packages/Scrutor/)! With it, we can scan our assemblies and perform certain actions on the types we find - it's a perfect tool to find all our classess and interfaces and register them by convention (the convention being marker interfaces).
+How can you register all your dependencies without writing lines and lines of code? [Scrutor](https://www.nuget.org/packages/Scrutor/)! With it, we can scan our assemblies and perform certain actions on the types we find - it's a perfect tool to find all our classess and interfaces and register them by convention (the convention being marker interfaces).
 
-We can create three interfaces to mark our dependencies with, like so:
+Add the package to your project and then  create three interfaces to mark our dependencies with, like so:
 
 {{< highlight csharp >}}
 
@@ -46,7 +46,7 @@ If you need some information on the different type of lifetimes, [check the MDNS
 
 Decorate those marker interfaces with comments describing that they are responsible for registering dependencies implementing them. You may want to discuss the naming with your team and agree to drop the `Dependency` suffix or name them with Domain in mind (eg. `IUseCase` or `IService`).
 
-After that, we need all our services to implement the selected service (`ISingletonDependency` for our singletons and so on).
+After that, we need all our services to implement the selected service (`ISingletonDependency` for our singletons, `ITransientDependency` for our transient services and `IScopedDependency` for scoped ones).
 
 {{< highlight csharp >}}
 
@@ -56,7 +56,7 @@ public class MyService : IMyService, ITransientDependency
 }
 {{< / highlight >}}
 
-Now we need to do the actual injection of our services, so in our `Startup.cs` navigate to `ConfigureServices` method (or create a new extensions class with our Scrutor setup named `DependencyInjectionExtensions.cs` and store our setup separately):
+Now we need to do the actual injection of our services, so in our `Startup.cs` navigate to `ConfigureServices` method (or create a new extensions class named something like `DependencyInjectionExtensions.cs` to store our setup separately):
 
 {{< highlight csharp >}}
 

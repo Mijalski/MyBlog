@@ -21,23 +21,41 @@ In high school I learned C#, to make games in Unity and that’s when I found ou
 
 ## Showcase
 
-My Bachelor's Degree thesis, created in a group. The project allows uploading WASM algorithms to be calculated on other devices, allowing for at-scale computation to be done without any need for cloud providers. The client-to-server communication has minimal overhead and is highly scalable.
 ![Screenshot of the Distributed Task Solving Dashboard](https://i.imgur.com/z61yPFa.png)
+My Bachelor's Degree thesis, created in a group. The project allows uploading WASM algorithms to be calculated on other devices, allowing for at-scale computation to be done without any need for cloud providers. The client-to-server communication has minimal overhead and is highly scalable.
 
-[DynamicCorsPolicy nuget package](https://www.nuget.org/packages/Mijalski.DynamicCorsPolicy/) lets users change at runtime the allowed origins with small overhead (none if the origin is predefined at startup). The project was a small success, with its niche.
+---
+
 ![Screenshot of the DynamicCorsPolicy nuget page](https://i.imgur.com/foFTLQX.png)
+[DynamicCorsPolicy nuget package](https://www.nuget.org/packages/Mijalski.DynamicCorsPolicy/) lets users change at runtime the allowed origins with small overhead (none if the origin is predefined at startup). The project was a small success, with its niche.
 
-[Hashash](https://www.hashash.app/) is a reddit clone. It's created with Svelte and .NET5.
+---
+
+![Screenshot of Research Aggregator website](https://i.imgur.com/msuL7cR.png)
+[Research Aggregator](https://research-aggregator.netlify.app/) is a place to find resources for topics. A great website for anyone trying to learn something new. It's created with Svelte and .NET5.
+
+---
+
 ![Screenshot of hashash website](https://i.imgur.com/jPNkoJS.png)
+[Hashash](https://www.hashash.app/) is a reddit clone. It's created with Svelte and .NET5.
+
+---
 
 [PixelWorld](https://www.pixels.hashash.app/) is a online paint that allows all users to draw freely in real time. Created using .NET and SingalR + PhaserJS.
 ![Screenshot of pixel world](https://i.imgur.com/AjxtiMB.png)
 
-Epicboost.eu was a website for League of Legends boosters and players. It featured login, registering, payments, live chat and tracking of orders. Written in ASP.NET Core.
+---
+
 ![Screenshot of EpicBoost.eu website](https://i.imgur.com/6xZxqgs.png)
+Epicboost.eu was a website for League of Legends boosters and players. It featured login, registering, payments, live chat and tracking of orders. Written in ASP.NET Core.
+
+---
 
 [WorkPlanner](https://workplannerblazor.z6.web.core.windows.net/) started as a project that allows users to exchange time shifts at work. The server and dashboard was written using abp.io and Blazor. React Native was used for the consumer application. Sadly, it was not finished :(
 
+---
+
+## Games
 I have also made multiple PhaserJS and Unity games, check them out:
 
 Blockdoku clone - a puzzle game, you can [play it here](https://nifty-morse-a80eb5.netlify.app/).

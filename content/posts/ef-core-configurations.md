@@ -1,16 +1,14 @@
-+++
-title = "EF Core Registering Model Configurations By Convention"
-date = "2021-06-08T17:26:47+02:00"
-author = ""
-authorTwitter = "kyrcooler"
-cover = ""
-tags = ["efcore", "dependency-injection"]
-keywords = ["efcore", "entity framework core", "EntityTypeBuilder", "ef core", "ef core configuration"]
-description = ""
-showFullContent = false
-+++
-
-Is your `ApplicationDbContext.cs` getting too large to manage? Is the `OnModelCreating` method too long to cope with?
+---
+author: "kyrcooler"
+title: "EF Core Registering Model Configurations By Convention"
+date: "2021-06-08"
+description: "Is your ApplicationDbContext getting to large? See how you can organise and divide the configurations neatly."
+tags: ["efcore", "dependency-injection"]
+keywords: ["efcore", "entity framework core", "EntityTypeBuilder", "ef core", "ef core configuration"]
+hideMeta: true
+searchHidden: true
+ShowBreadCrumbs: false
+---
 
 When our model configuration is stored all in one file it becomes tedious to edit it as the application grows.
 Even, if developers agree to stick to some kind of ordering it is bound to blur and fade away as one of the developers inevitably adds one configuration in the wrong place. How can we prevent it?

@@ -1,14 +1,14 @@
-+++
-title = "EF Core Implementing Soft Delete"
-date = "2021-06-09T17:26:47+02:00"
-author = ""
-authorTwitter = "kyrcooler"
-cover = ""
-tags = ["efcore"]
-keywords = ["efcore", "entity framework core", "soft delete", "ef core", "ef core soft delete", "soft deleting"]
-description = ""
-showFullContent = false
-+++
+---
+author: "kyrcooler"
+title: "EF Core Implementing Soft Delete"
+date: "2021-06-07"
+description: "Deleting your entites completly is dangerous and without global filters may be dangerous."
+tags: ["efcore"]
+keywords: ["efcore", "entity framework core", "soft delete", "ef core", "ef core soft delete", "soft deleting"]
+hideMeta: true
+searchHidden: true
+ShowBreadCrumbs: false
+---
 
 Soft deleting is an easy way of deleting data without actually removing it from the database. Instead of performing `DELETE` on the database we mark it as deleted and filter it out by default on the application side. We want our soft delete mechanism to function seamlessly with EFCore, after all, it's just the implementation detail, so we need to intercept all `DbContext` `Remove` calls.
 

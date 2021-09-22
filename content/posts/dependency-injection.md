@@ -1,15 +1,14 @@
-+++
-title = "Auto Registering dependencies with Scrutor"
-date = "2021-06-24T14:26:47+02:00"
-author = ""
-authorTwitter = "kyrcooler"
-cover = ""
-tags = ["scrutor", "dependency-injection"]
-keywords = ["scrutor", "transient dependency", "dependency injection", "di", "dependency injection container", "service collection", "services", "registering dependencies"]
-description = ""
-showFullContent = false
-+++
-
+---
+author: "kyrcooler"
+title: "Auto Registering dependencies with Scrutor"
+date: "2021-06-24"
+description: "How to stop forgetting to register your dependencies, by doing it automatically without unnecessary complexity."
+tags: ["scrutor", "dependency-injection"]
+keywords: ["scrutor", "transient dependency", "dependency injection", "di", "dependency injection container", "service collection", "services", "registering dependencies"]
+hideMeta: true
+searchHidden: true
+ShowBreadCrumbs: false
+---
 ![Dependency injection](https://i.imgur.com/HXCKL5l.png)
 
 Dependency injection (DI) software design pattern is one of the most used ones and requires no introduction, but if you need any [check out MDNS article about this topic](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection). 

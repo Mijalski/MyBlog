@@ -1,12 +1,11 @@
-+++
-title = "About me"
-author = ""
-date = "2021-09-19T22:36:23+02:00"
-authorTwitter = "kyrcooler"
-cover = ""
-description = ""
-showFullContent = false
-+++
+---
+author: "kyrcooler"
+title: "About me"
+date: "2021-06-16"
+hideMeta: true
+searchHidden: true
+ShowBreadCrumbs: false
+---
 
 ## Who am I?
 

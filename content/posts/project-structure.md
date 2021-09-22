@@ -1,15 +1,13 @@
-+++
-title = ".NET Project Structure"
-date = "2021-06-16T13:26:47+02:00"
-author = ""
-authorTwitter = "kyrcooler"
-cover = ""
-tags = ["architecture"]
-keywords = ["architecture", "project architecture", ".net architecture", ".net project structure", "project structure"]
-description = ""
-showFullContent = false
-+++
-
+---
+author: "kyrcooler"
+title: ".NET Project Structure"
+date: "2021-06-16"
+tags: ["architecture"]
+keywords: ["architecture", "project architecture", ".net architecture", ".net project structure", "project structure"]
+hideMeta: true
+searchHidden: true
+ShowBreadCrumbs: false
+---
 ![.NET Project structure](https://i.imgur.com/nKMpPXF.png)
 
 For almost all of my projects, I follow this simple project structure and it works great, so let's go over it from the bottom.

@@ -111,7 +111,7 @@ menu:
     main:
         - identifier: about
           name: about
-          url: /about-me
+          url: /about
           weight: 10
         - identifier: tags
           name: tags

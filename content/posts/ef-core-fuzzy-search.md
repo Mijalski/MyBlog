@@ -15,7 +15,7 @@ draft=false
 
 Fuzzy search allows finding strings that match the pattern approximately. It is a feature needed in almost every app, but it can be a little problematic to implement. We will focus on EFCore PostgreSql provider as it is free and seems to be the most popular choice nowadays (for me at least).
 
-First, our EFCore project needs this package: [Npgsql.EntityFrameworkCore.PostgreSQL.FuzzyStringMatch](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL.FuzzyStringMatch/)
+First, our EFCore project needs this package: [PostgreSQL.FuzzyStringMatch](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL.FuzzyStringMatch/)
 
 Then, we need to register it with our `DbContext`, so let's navigate to `Startup.cs` and edit our registration like so:
 

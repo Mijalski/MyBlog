@@ -64,7 +64,7 @@ _Screenshot from Blockdoku_
 
 Life Game is a small commentary on the passing time of our lives, and you can [experience it here](https://www.kongregate.com/games/KYRV19/life-game).
 ![Screenshot from my game](https://i.imgur.com/sZRQjlg.png)
-_Gif gameplay from Life Game_
+_Screenshot gameplay from Life Game_
 
 Quick Maths is a math game, that tests yours skills. You are given an answer and you have to use the numbers and basic mathematic operations to get to it. [Download it here](https://play.google.com/store/apps/details?id=com.kyrv.speedmaths).
 ![Screenshot from my game](https://i.imgur.com/EQeibMC.png)

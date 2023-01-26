@@ -78,6 +78,8 @@ params:
           url: "https://twitter.com/KYRCooler"
         - name: github
           url: "https://github.com/Mijalski"
+        - name: youtube
+          url: "https://www.youtube.com/@hubertmijalski"
 
     # analytics:
     #     google:
